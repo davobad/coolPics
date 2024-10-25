@@ -22,56 +22,31 @@
 
 using namespace std;
 
-class Graphics
-{
-public:
+Graphics::Graphics() {
+    initArray();
+}
 
-    
-    Graphics() {
-        for (int i = 0; i < DIMENSION; i++) {
-            for (int j = 0; j < DIMENSION; j++) {
-                pixelData[i][j] = 
-            }
+void Graphics ::clear() {
+    initArray();
+}
+
+
+void Graphics ::setPixel(int x, int y, Color color) {
+    if (x >= 0 && x < DIMENSION && y < DIMENSION && y >= 0) {
+        pixelData[y][x] = color;
+    }
+}
+
+void Graphics ::initArray() {
+    Color col();
+    for (int i = 0; i < DIMENSION; i++) {
+        for (int j = 0; j < DIMENSION; j++) {
+            pixelData[i][j] = col();
         }
     }
+}
 
-    /**
-     * Requires: Nothing.
-     * Modifies: pixelData.
-     * Effects:  Sets all pixels to black.
-     * Note: you will want to implement the private
-     *  member function initArray before implementing
-     *  clear()
-     */
-    void clear();
 
-    /**
-     * Requires: Nothing.
-     * Modifies: Nothing.
-     * Effects:  Writes the BMP file to filename.
-     */
-    void writeFile(string fileName) const;
-
-    /**
-     * Requires: color is a valid Color
-     * Modifies: pixelData.
-     * Effects:  Sets the pixel at (x, y) to color
-     *      if it is within the bounds.
-     *      See the specification for how pixels are stored.
-     */
-    void setPixel(int x, int y, Color color);
-
-private:
-    /**
-     * Requires: Nothing.
-     * Modifies: pixelData.
-     * Effects:  Initializes all pixels in pixelData to black.
-     */
-    void initArray();
-
-    // Holds the color in the pixels
-    Color pixelData[DIMENSION][DIMENSION];
-};
 
 // Your code goes above this line.
 // Don't change the implementation below!
