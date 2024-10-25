@@ -18,12 +18,78 @@
 #include <algorithm>
 using namespace std;
 
-// TODO: implement two constructors, setCenter, getCenter, setColor, getColor,
-//       setRadius, getRadius, read, write.
+
+
+Circle::Circle() {
+    Point pt;
+    int r = 0;
+    Color color;
+    center = pt;
+    radius = r;
+    color = color;
+}
+
+Circle::Circle(Point pt, int r, Color c) {
+    center = pt;
+    radius = r;
+    color = c;
+}
+
+void Circle::setCenter(Point pt) {
+    center = pt;
+}
+    
+Point Circle::getCenter() {
+    return center;
+}
+
+void Circle::setRadius(int r) {
+    radius = r;
+}
+
+int Circle::getRadius() {
+    return radius;
+}
+
+void Circle::setColor(Color c) {
+    color = c;
+}
+
+Color Circle::getColor() {
+    return color;
+}
+
+void Circle::read(istream& ins) {
+    char junk;
+    int x, y, red, green, blue;
+    ins >> junk >> junk >> x >> junk >> y >> 
+        junk >> radius >> red >> green >> blue;
+}
+ 
+void Circle::write(ostream& outs) {
+    outs << "C (" << center.getX() << "," << center.getY() << ") " << radius << " " 
+        << color.getRed() << " " << color.getGreen() << color.getBlue();
+}
+
+
+int Circle::checkRadius(int radius) {
+    if (radius >= 0) {
+        return radius;
+    }
+    else {
+        return -radius;
+    }
+}
+
+
+    /**
+     * Helper functions for drawing triangle.
+     */
+    void plot8points(int x, int y, Color c, Graphics& drawer);
+    void plot4points(int x, int y, Color c, Graphics& drawer);
 
 
 
-// Your code goes above this line.
 // Don't change the implementations below!
 
 istream& operator >> (istream& ins, Circle& circle)
