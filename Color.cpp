@@ -12,73 +12,62 @@
  */
 
 #include "Color.h"
-class Color {
-public:
-	Color() {
-		red = 0;
-		blue = 0;
-		green = 0;
-	}
-	
-	Color(int redVal, int greenVal, int blueVal) {
-		red = redVal;
-		green = greenVal;
-		blue = blueVal;
-	}
 
-    void setRed(int redVal) {
-        red = redVal;
+Color::Color() {
+    red = 0;
+    blue = 0;
+    green = 0;
+}
+
+Color::Color(int redVal, int greenVal, int blueVal) {
+    red = redVal;
+    green = greenVal;
+    blue = blueVal;
+}
+
+void Color::setRed(int redVal) {
+    red = redVal;
+}
+
+int Color::getRed() {
+    return red;
+}
+
+void Color::setGreen(int greenVal) {
+    green = greenVal;
+}
+
+int Color::getGreen() {
+    return green;
+}
+
+void Color::setBlue(int blueVal) {
+    blue = blueVal;
+}
+
+int Color::getBlue() {
+    return blue;
+}
+
+void Color::read(istream& ins) {
+    ins >> red >> green >> blue;
+}
+
+void Color::write(ostream& outs) {
+    outs << red << " " << green << " " << blue;
+}
+
+int Color::checkRange(int val) {
+    if (val >= 0 && val <= 255) {
+        return val;
     }
-
-    int getRed() {
-        return red;
+    else if (0 - val < val - 255) {
+        return 0;
     }
-
-    void setGreen(int greenVal) {
-        green = greenVal;
+    else {
+        return 255;
     }
-
-    int getGreen() {
-        return green;
-    }
-
-    void setBlue(int blueVal) {
-        blue = blueVal;
-    }
-
-    int getBlue() {
-        return blue;
-    }
-
-    void read(istream& ins) {
-        ins;
-    }
-
-    void write(ostream& outs) {
-        outs << red << " " << green << " " << blue;
-    }
-private: 
-	int red;
-	int green;
-	int blue;
-
-
-    int checkRange(int val) {
-        if (val >= 0 && val <= 255) {
-            return val;
-        }
-        else if(0 - val < val - 255) {
-            return 0;
-        }
-        else {
-            return 255;
-        }
-    }
-
-};
- // TODO: implement first checkRange, then two constructors, setRed, getRed,
- //       setGreen, getGreen, setBlue, getBlue, read, write.
-
+}
 
 
  // Your code goes above this line.
