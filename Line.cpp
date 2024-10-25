@@ -14,8 +14,56 @@
 #include "Line.h"
 #include "Graphics.h"
 
- // TODO: implement two Line constructors, setStart, getStart, setEnd,
- //       getEnd, setColor, getColor, read, write.
+Line::Line() {
+    Point pt;
+    Color color;
+
+    start = pt;
+    end = pt;
+    lineColor = color;
+}
+
+Line::Line(Point pt1, Point pt2, Color color) {
+    start = pt1;
+    end = pt2;
+    lineColor = color;
+}
+
+void Line::setStart(Point pt) {
+    start = pt;
+}
+
+Point Line::getStart() {
+    return start;
+}
+
+void Line::setEnd(Point pt) {
+    end = pt;
+}
+
+Point Line::getEnd() {
+    return end;
+}
+
+void Line::setColor(Color color) {
+    lineColor = color;
+}
+
+Color Line::getColor() {
+    return lineColor;
+}
+    
+void Line::read(istream& ins) {
+    ins;
+}
+
+void Line::write(ostream& outs) {
+
+}
+
+
+//    Point start;
+//    Point end;
 
 
 
