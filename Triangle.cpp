@@ -17,11 +17,95 @@
 #include <cmath>
 using namespace std;
 
-// TODO: implement two constructors, setColor, setVertexOne, getVertexOne,
-//       setVertexTwo, getVertexTwo, setVertexThree, getVertexThree,
-//       setVertexOneColor, getVertexOneColor, setVertexTwoColor,
-//       getVertexTwoColor, setVertexThreeColor, getVertexThreeColor,
-//       read, write.
+
+
+    Triangle::Triangle() {
+        Color color;
+        Point pt;
+
+        vertexOne = pt;
+        vertexTwo = pt;
+        vertexThree = pt;
+        vertexOneColor = color;
+        vertexTwoColor = color;
+        vertexThreeColor = color;
+    }
+
+    Triangle::Triangle(Point pt1, Color color1,
+        Point pt2, Color color2,
+        Point pt3, Color color3) {
+
+        vertexOne = pt1;
+        vertexTwo = pt2;
+        vertexThree = pt3;
+        vertexOneColor = color1;
+        vertexTwoColor = color2;
+        vertexThreeColor = color3;
+    }
+
+    void Triangle::setColor(Color color) {
+        vertexOneColor = color;
+        vertexTwoColor = color;
+        vertexThreeColor = color;
+    }
+
+
+    void Triangle::setVertexOne(Point pt) {
+        vertexOne = pt;
+    }
+
+    Point Triangle::getVertexOne() {
+        return vertexOne;
+    }
+
+    void Triangle::setVertexOneColor(Color color) {
+        vertexOneColor = color;
+    }
+
+    Color Triangle::getVertexOneColor() {
+        return vertexOneColor;
+    }
+
+    void Triangle::setVertexTwo(Point pt) {
+        vertexTwo = pt;
+    }
+
+    Point Triangle::getVertexTwo() {
+        return  vertexTwo;
+    }
+
+
+    void Triangle::setVertexTwoColor(Color color) {
+        vertexTwoColor = color;
+    }
+
+    Color Triangle::getVertexTwoColor() {
+        return vertexTwoColor;
+    }
+
+    void Triangle::setVertexThree(Point pt) {
+        vertexThree = pt;
+    }
+
+    Point Triangle::getVertexThree() {
+        return vertexThree;
+    }
+
+    void Triangle::setVertexThreeColor(Color color) {
+        vertexThreeColor = color;
+    }
+
+    Color Triangle::getVertexThreeColor() {
+        return vertexThreeColor;
+    }
+
+    void Triangle::read(istream& ins) {
+
+    }
+
+    void Triangle::write(ostream& outs) {
+
+    }
 
 
 
