@@ -31,6 +31,7 @@ Circle::Circle() {
 
 Circle::Circle(Point pt, int r, Color c) {
     center = pt;
+    r = checkRadius(r);
     radius = r;
     color = c;
 }
@@ -44,6 +45,7 @@ Point Circle::getCenter() {
 }
 
 void Circle::setRadius(int r) {
+    r = checkRadius(r);
     radius = r;
 }
 
@@ -64,29 +66,18 @@ void Circle::read(istream& ins) {
     int x, y, red, green, blue;
     ins >> junk >> junk >> x >> junk >> y >> 
         junk >> radius >> red >> green >> blue;
+    center.setX(x);
+    center.setY(y);
+    color.setRed(red);
+    color.setGreen(green);
+    color.setBlue(blue);
 }
  
 void Circle::write(ostream& outs) {
     outs << "C (" << center.getX() << "," << center.getY() << ") " << radius << " " 
-        << color.getRed() << " " << color.getGreen() << color.getBlue();
+        << color.getRed() << " " << color.getGreen() << " " << color.getBlue();
 }
 
-
-int Circle::checkRadius(int radius) {
-    if (radius >= 0) {
-        return radius;
-    }
-    else {
-        return -radius;
-    }
-}
-
-
-    /**
-     * Helper functions for drawing triangle.
-     */
-    void plot8points(int x, int y, Color c, Graphics& drawer);
-    void plot4points(int x, int y, Color c, Graphics& drawer);
 
 
 
