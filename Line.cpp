@@ -54,16 +54,27 @@ Color Line::getColor() {
 }
     
 void Line::read(istream& ins) {
-    ins;
+    char junk;
+    int startX, startY, endX, endY, red, green, blue;
+    ins >> junk >> junk >> startX >> junk >> startY >>
+        junk >> endX >> junk >> endY >> junk >> red >> green >> blue;
+
+    start.setX(startX);
+    start.setY(startY);
+    end.setX(endX);
+    end.setY(endY);
+    lineColor.setRed(red);
+    lineColor.setGreen(green);
+    lineColor.setBlue(blue);
 }
 
 void Line::write(ostream& outs) {
-
+    outs << "C (" << start.getX() << "," << start.getY() << ") " << " " << "C (" << end.getX() << "," << end.getY() << " "
+        << lineColor.getRed() << " " << lineColor.getGreen() << " " << lineColor.getBlue();
 }
 
 
-//    Point start;
-//    Point end;
+
 
 
 
